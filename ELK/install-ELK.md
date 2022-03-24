@@ -10,11 +10,15 @@ wget https://artifacts.elastic.co/downloads/logstash/logstash-8.1.1-x86_64.rpm
 wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.1-x86_64.rpm
 ```
 ## 前期准备：
-### 关闭防火墙：`systemctl stop firewalld.service`
-### 查看java环境：`java -version`
-### 没有安装java就直接安装一个就行
+
+关闭防火墙：`systemctl stop firewalld.service`
+
+查看java环境：`java -version`
+
+没有安装java就直接安装一个就行
 ## 安装elasticsreach rpm包
-### 下载完elasticsreach的rpm包后，使用 sudo rpm -ivh elasticsearch-8.1.1-x86_64.rpm 进行安装
+
+下载完elasticsreach的rpm包后，使用 `sudo rpm -ivh elasticsearch-8.1.1-x86_64.rpm` 进行安装**
 重载systemctl : sudo systemctl daemon-reload
 sudo systemctl enable elasticsearch.service
 把elasticsreach 配置文件备份一个然后再编写对应的配置
