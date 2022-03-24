@@ -1,6 +1,6 @@
-##ELK是由Elasticsreach 、logstash 、kibana三个开源软件组合使用的日志收集系统
-#安装ELK：
-##在安装前要先下载这些软件
+## ELK是由Elasticsreach 、logstash 、kibana三个开源软件组合使用的日志收集系统
+# 安装ELK：
+## 在安装前要先下载这些软件
 ```
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.1-x86_64.rpm
 wget https://nodejs.org/dist/v16.14.2/node-v16.14.2.tar.gz
@@ -9,12 +9,12 @@ git clone git@github.com:mobz/elasticsearch-head.git
 wget https://artifacts.elastic.co/downloads/logstash/logstash-8.1.1-x86_64.rpm
 wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.1-x86_64.rpm
 ```
-##前期准备：
-关闭防火墙：`systemctl stop firewalld.service`
-查看java环境：`java -version`
-没有安装java就直接安装一个就行
-安装elasticsreach rpm包
-下载完elasticsreach的rpm包后，使用 sudo rpm -ivh elasticsearch-8.1.1-x86_64.rpm 进行安装
+## 前期准备：
+### 关闭防火墙：`systemctl stop firewalld.service`
+### 查看java环境：`java -version`
+### 没有安装java就直接安装一个就行
+## 安装elasticsreach rpm包
+### 下载完elasticsreach的rpm包后，使用 sudo rpm -ivh elasticsearch-8.1.1-x86_64.rpm 进行安装
 重载systemctl : sudo systemctl daemon-reload
 sudo systemctl enable elasticsearch.service
 把elasticsreach 配置文件备份一个然后再编写对应的配置
