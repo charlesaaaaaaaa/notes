@@ -27,8 +27,8 @@ wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.1-x86_64.rpm
 ```
 cluster.name:{指定集群的名字}  
 node.name: {当前服务器名，如192.168.0.113是kunlun-test3}  
-path.data: /var/lib/elasticsearch {把#注释删了就行}  
-path.logs: /var/log/elasticsearch {把#注释删了就行}  
+path.data: /var/lib/elasticsearch {把#注释删了就行,如果要自己指定目录要记得把目录权限改成 elasticsearch:elasticsearch}  
+path.logs: /var/log/elasticsearch {把#注释删了就行,同上}  
 bootstrap.memory_lock: false {原来是true}  
 network.host: {服务器ip}  
 http.port: {监听端口}  
