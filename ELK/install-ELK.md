@@ -16,12 +16,12 @@ wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.1-x86_64.rpm
 查看java环境：`java -version`
 
 没有安装java就直接安装一个就行
-## 安装elasticsreach rpm包
+## 安装elasticsearch rpm包
 
-下载完elasticsreach的rpm包后，使用 `sudo rpm -ivh elasticsearch-8.1.1-x86_64.rpm` 进行安装  
+下载完elasticsearch的rpm包后，使用 `sudo rpm -ivh elasticsearch-8.1.1-x86_64.rpm` 进行安装  
 重载systemctl : `sudo systemctl daemon-reload`  
 `sudo systemctl enable elasticsearch.service`  
-把elasticsreach 配置文件备份一个然后再编写对应的配置  
+把elasticsearch 配置文件备份一个然后再编写对应的配置  
 `sudo cp /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml-bak`  
 `sudo vi /etc/elasticsearch/elasticsearch.yml` ，配置主要改的参数如下(注意要把参数前面的#号注释给删掉)  
 ```
@@ -84,7 +84,7 @@ error This is probably not a problem with npm. There is likely additional loggin
 http.cors.enabled: true         #开启跨域访问支持，默认为 false
 http.cors.allow-origin: "*"         #指定跨域访问允许的域名地址为所有
 ```
-随后重启elasticsreach : `systemctl restart elasticsearch`  
+随后重启elasticsearch : `systemctl restart elasticsearch`  
 ## 启动Elasticsreach-head
 进入到Elasticsreach-head目录下 ： `cd /usr/local/src/elasticsearch-head/`  
 `npm run start &`  
