@@ -1,10 +1,10 @@
 部署cockroach群集是因为要用来和我们Kunlun进行对比  
 所以我们就直接用insecure模式进行部署就行  
 ## 前期准备
-`sudo timedatectl set-ntp no`
-`timedatectl`
+`sudo timedatectl set-ntp no`  
+`timedatectl`  
 然后进去[这个网站](https://www.cockroachlabs.com/docs/v21.2/deploy-cockroachdb-on-premises-insecure.html#step-2-start-nodes),下载最新的软件  
-下载完毕后`cp -i cockroach-v21.2.7.linux-amd64/cockroach /usr/local/bin/`
+下载完毕后`cp -i cockroach-v21.2.7.linux-amd64/cockroach /usr/local/bin/`  
 ```
 mkdir -p /usr/local/lib/cockroach
 cp -i cockroach-v21.2.7.linux-amd64/lib/libgeos.so /usr/local/lib/cockroach/
