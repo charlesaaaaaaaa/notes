@@ -5,6 +5,7 @@
 `wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.1-x86_64.rpm`  
 [elasticsearch下载](https://www.elastic.co/cn/downloads/elasticsearch)  
 `wget https://nodejs.org/dist/v16.14.2/node-v16.14.2.tar.gz`  
+[nodejs 下载](https://nodejs.org/dist/latest/)  
 `wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2`  
 `git clone git@github.com:mobz/elasticsearch-head.git`  
 `wget https://artifacts.elastic.co/downloads/logstash/logstash-8.1.1-x86_64.rpm`  
