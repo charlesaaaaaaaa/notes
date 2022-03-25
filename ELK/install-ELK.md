@@ -90,3 +90,9 @@ http.cors.allow-origin: "*"         #指定跨域访问允许的域名地址为�
 `npm run start &`  
 默认端口是9100，所以`sudo lsof -i:9100` 或者 `netstat -antp | grep 9100`查看是否启动成功  
 随后访问web ： `http://ip:9100/`,在最上方的输入框里面输入`ip:监听端口`，点击连接，查看集群健康值是否为green  
+# 安装logstash
+`rpm -ivh logstash-5.5.1.rpm`  
+`systemctl start logstash.service`  
+`systemctl enable logstash.service`  
+ 
+`ln -s /usr/share/logstash/bin/logstash /usr/local/bin/`
