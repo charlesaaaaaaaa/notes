@@ -94,5 +94,6 @@ http.cors.allow-origin: "*"         #指定跨域访问允许的域名地址为�
 `rpm -ivh logstash-5.5.1.rpm`  
 `systemctl start logstash.service`  
 `systemctl enable logstash.service`  
- 
 `ln -s /usr/share/logstash/bin/logstash /usr/local/bin/`
+
+在开启的时候要注意配置文件有没有读取权限,还有就是index名不可以有大写
