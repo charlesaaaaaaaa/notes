@@ -13,6 +13,7 @@
 [Logstash 下载](https://www.elastic.co/cn/downloads/logstash)  
 `get https://artifacts.elastic.co/downloads/kibana/kibana-8.1.1-x86_64.rpm`  
 [Kibana 下载](https://www.elastic.co/cn/downloads/kibana)  
+[filebeat 下载](https://www.elastic.co/cn/downloads/beats/filebeat)
 
 ## 前期准备：
 
