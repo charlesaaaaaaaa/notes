@@ -204,6 +204,7 @@ create node cn02 with(type=coordinator,host='192.168.0.132',port=15432,primary=f
 create node dn01 with(type=datanode,host='192.168.0.134',port=23002,primary=false,preferred=false);
 create node dn02 with(type=datanode,host='192.168.0.132',port=23002,primary=false,preferred=false);
 select pgxc_pool_reload();
+```
 ### cn 2
 ```
 psql -h 192.168.0.132 -d postgres -p 15432
