@@ -137,7 +137,6 @@ EOF
 
 ## 查看节点状态：
 `pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn01 status`
-===================================================
 
 # 安装datanode备用节点
 ## 初始化：
