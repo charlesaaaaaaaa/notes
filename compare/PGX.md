@@ -182,7 +182,7 @@ EOF
 ```
 ### 增加recovery.conf配置文件：
 ```
-touch /home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf && cat >> /home/kunlun/TPC/postgres-xz/data/dn1s1/recovery.conf << EOF
+touch /home/kunlun/TPC/postgres-xz/data/dn01/recovery.conf && cat >> /home/kunlun/TPC/postgres-xz/data/dn1s1/recovery.conf << EOF
 standby_mode = on 
 primary_conninfo ='host = 192.168.0.132 port = 23002 user = kunlun application_name = dn01'
 EOF
