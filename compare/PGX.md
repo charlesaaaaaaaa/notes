@@ -92,7 +92,7 @@ EOF
 ## 修改配置文件：pg_hba.conf      postgresql.conf
 ### postgresql.conf
 ```
-cat >> home/kunlun/TPC/postgres-xz/data/dn01/postgresql.conf << EOF
+cat >> /home/kunlun/TPC/postgres-xz/data/dn01/postgresql.conf << EOF
 port =23002
 pooler_port=23003
 include_if_exists ='/data/tbase/global/postgresql.conf.user'
@@ -123,7 +123,7 @@ EOF
 
 ### pg_hba.conf
 ```
-cat >> home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf << EOF
+cat >> /home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf << EOF
 host    replication     all             0.0.0.0/0               trust
 host    all             all             0.0.0.0/0               trust
 EOF
@@ -146,7 +146,7 @@ EOF
 ## 修改配置文件：pg_hba.conf      postgresql.conf
 ### postgresql.conf
 ```
-cat >> home/kunlun/TPC/postgres-xz/data/dn01/postgresql.conf << EOF
+cat >> /home/kunlun/TPC/postgres-xz/data/dn01/postgresql.conf << EOF
 port =23005
 pooler_port=23006
 include_if_exists ='/data/tbase/global/postgresql.conf.user'
@@ -176,14 +176,14 @@ EOF
 ```
 ### pg_hba.conf
 ```
-cat >> home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf << EOF
+cat >> /home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf << EOF
 host    replication     all             0.0.0.0/0               trust
 host    all             all             0.0.0.0/0               trust
 EOF
 ```
 ### 增加recovery.conf配置文件：
 ```
-touch home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf && cat >> home/kunlun/TPC/postgres-xz/data/dn1s1/recovery.conf << EOF
+touch /home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf && cat >> /home/kunlun/TPC/postgres-xz/data/dn1s1/recovery.conf << EOF
 standby_mode = on 
 primary_conninfo ='host = 192.168.0.132 port = 23002 user = kunlun application_name = dn01'
 EOF
