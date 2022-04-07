@@ -77,18 +77,21 @@ host    all             all             0.0.0.0/0               trust
 EOF
 ```
 
-pg_ctl -Z coordinator -D /home/kunlun/TPC/postgres-xz/data/cn01 start
+## start coordinator nodes
+`pg_ctl -Z coordinator -D /home/kunlun/TPC/postgres-xz/data/cn01 start`
 
-pg_ctl -D /home/kunlun/TPC/postgres-xz/data/cn0 reload
+## reload coordinator nodes
+`pg_ctl -D /home/kunlun/TPC/postgres-xz/data/cn0 reload`
 
-pg_ctl -D /home/kunlun/TPC/postgres-xz/data/cn0 status
-===========================================================
+## check coordinator status
+`pg_ctl -D /home/kunlun/TPC/postgres-xz/data/cn0 status`
 
-安装datanode主节点:
-其它datanode主节点步骤相同
-initdb --locale=zh_CN.UTF-8 -U kunlun -E utf8 -D /home/kunlun/TPC/postgres-xz/data/dn01 --nodename=dn01 --nodetype=datanode --master_gtm_nodename gtm1 --master_gtm_ip 192.168.0.134 --master_gtm_port 21000
+# 安装datanode主节点:其它datanode主节点步骤相同
+`initdb --locale=zh_CN.UTF-8 -U kunlun -E utf8 -D /home/kunlun/TPC/postgres-xz/data/dn01 --nodename=dn01 --nodetype=datanode --master_gtm_nodename gtm1 --master_gtm_ip 192.168.0.134 --master_gtm_port 21000`
 
-修改配置文件：pg_hba.conf      postgresql.conf
+## 修改配置文件：pg_hba.conf      postgresql.conf
+### postgresql.conf
+```
 cat >> home/kunlun/TPC/postgres-xz/data/dn01/postgresql.conf << EOF
 port =23002
 pooler_port=23003
@@ -116,27 +119,33 @@ log_statement ='ddl'
 log_destination ='csvlog'
 wal_buffers =1GB
 EOF
+```
 
+### pg_hba.conf
+```
 cat >> home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf << EOF
 host    replication     all             0.0.0.0/0               trust
 host    all             all             0.0.0.0/0               trust
 EOF
+```
 
-启动节点：
-pg_ctl -Z datanode -D /home/kunlun/TPC/postgres-xz/data/dn01 start
+## 启动节点：
+`pg_ctl -Z datanode -D /home/kunlun/TPC/postgres-xz/data/dn01 start`
 
-重载节点：
-pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn01 reload
+## 重载节点：
+`pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn01 reload`
 
-查看节点状态：
-pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn01 status
+## 查看节点状态：
+`pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn01 status`
 ===================================================
 
-安装datanode备用节点
-初始化：
-initdb --locale=zh_CN.UTF-8 -U kunlun -E utf8 -D /home/kunlun/TPC/postgres-xz/data/dn01s1 --nodename=dn01s1 --nodetype=datanode --master_gtm_nodename gtm1 --master_gtm_ip 192.168.0.134 --master_gtm_port 21000
+# 安装datanode备用节点
+## 初始化：
+`initdb --locale=zh_CN.UTF-8 -U kunlun -E utf8 -D /home/kunlun/TPC/postgres-xz/data/dn01s1 --nodename=dn01s1 --nodetype=datanode --master_gtm_nodename gtm1 --master_gtm_ip 192.168.0.134 --master_gtm_port 21000`
 
-修改配置文件：pg_hba.conf      postgresql.conf
+## 修改配置文件：pg_hba.conf      postgresql.conf
+### postgresql.conf
+```
 cat >> home/kunlun/TPC/postgres-xz/data/dn01/postgresql.conf << EOF
 port =23005
 pooler_port=23006
@@ -164,62 +173,77 @@ log_statement ='ddl'
 log_destination ='csvlog'
 wal_buffers =1GB
 EOF
-
+```
+### pg_hba.conf
+```
 cat >> home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf << EOF
 host    replication     all             0.0.0.0/0               trust
 host    all             all             0.0.0.0/0               trust
 EOF
-
-增加recovery.conf配置文件：
+```
+### 增加recovery.conf配置文件：
+```
 touch home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf && cat >> home/kunlun/TPC/postgres-xz/data/dn1s1/recovery.conf << EOF
 standby_mode = on 
 primary_conninfo ='host = 192.168.0.132 port = 23002 user = kunlun application_name = dn01'
 EOF
+```
+## start datanode_slave
+`pg_ctl -Z datanode -D /home/kunlun/TPC/postgres-xz/data/dn1s1 start`
+## reload datanode_slave
+`pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn1s1 reload`
+## check datanode_slave status
+`pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn1s1 status`
 
-pg_ctl -Z datanode -D /home/kunlun/TPC/postgres-xz/data/dn1s1 start
-
-pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn1s1 reload
-
-pg_ctl -D /home/kunlun/TPC/postgres-xz/data/dn1s1 status
-================================================================
-
-路由配置：该设置只设置主节点，不设置备节点
+## 路由配置：该设置只设置主节点，不设置备节点
+### cn 1
+```
 psql -h 192.168.0.134 -d postgres -p 15432
 alter node cn01 with(host='192.168.0.134',port=15432);
 create node cn02 with(type=coordinator,host='192.168.0.132',port=15432,primary=false,preferred=false);
 create node dn01 with(type=datanode,host='192.168.0.134',port=23002,primary=false,preferred=false);
 create node dn02 with(type=datanode,host='192.168.0.132',port=23002,primary=false,preferred=false);
 select pgxc_pool_reload();
---------------------------------------------------------------------------------------------
+### cn 2
+```
 psql -h 192.168.0.132 -d postgres -p 15432
 alter node cn02 with(host='192.168.0.132',port=15432);
 create node cn01 with(type=coordinator,host='192.168.0.132',port=15432,primary=false,preferred=false);
 create node dn01 with(type=datanode,host='192.168.0.134',port=23002,primary=false,preferred=false);
 create node dn02 with(type=datanode,host='192.168.0.132',port=23002,primary=false,preferred=false);
 select pgxc_pool_reload();
---------------------------------------------------------------------------------------------
+```
+### datanode 1
+```
 psql -h 192.168.0.132 -d postgres -p 23002
 alter node dn01 with(host='192.168.0.132',port=23002);
 create node cn02 with(type=coordinator,host='192.168.0.132',port=15432,primary=false,preferred=false);
 create node dn02 with(type=datanode,host='192.168.0.134',port=23002,primary=false,preferred=false);
 create node cn01 with(type=datanode,host='192.168.0.134',port=15432,primary=false,preferred=false);
 select pgxc_pool_reload();
---------------------------------------------------------------------------------------------
+```
+### datanode 2
+```
 psql -h 192.168.0.134 -d postgres -p 23002
 alter node dn01 with(host='192.168.0.134',port=23002);
 create node dn02 with(type=coordinator,host='192.168.0.132',port=23002,primary=false,preferred=false);
 create node cn02 with(type=datanode,host='192.168.0.134',port=15432,primary=false,preferred=false);
 create node cn01 with(type=datanode,host='192.168.0.132',port=15432,primary=false,preferred=false);
 select pgxc_pool_reload();
-====================================================================
+```
 
-创建默认group
+
+## 创建默认group
+```
 psql -h 192.168.0.134 -d postgres -p 15432
 create default node group default_group with(dn01, dn02);
 create sharding group to group default_group;
 select*from pgxc_group;
+```
 
+```
 psql -h 192.168.0.132 -d postgres -p 15432
 create default node group default_group with(dn01, dn02);
 create sharding group to group default_group;
 select*from pgxc_group;
+```
