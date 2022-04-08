@@ -141,7 +141,8 @@ EOF
 
 # 安装datanode备用节点
 ## 初始化：
-`initdb --locale=zh_CN.UTF-8 -U kunlun -E utf8 -D /home/kunlun/TPC/postgres-xz/data/dn01s1 --nodename=dn01s1 --nodetype=datanode --master_gtm_nodename gtm1 --master_gtm_ip 192.168.0.134 --master_gtm_port 21000`
+`pg_basebackup -p 23003 -h 192.168.0.132 -U kunlun -D /home/kunlun/TPC/postgres-xz/data/dn01s1 -X f -P -v`  
+这里的host和port表示的是要复制的主的host,port。只有用pg_basebackup备份主节点，才能有相同的标识码，-D 后面跟随的是要复制到的目录  
 
 ## 修改配置文件：pg_hba.conf      postgresql.conf
 ### postgresql.conf
@@ -181,7 +182,7 @@ host    replication     all             0.0.0.0/0               trust
 host    all             all             0.0.0.0/0               trust
 EOF
 ```
-### 增加recovery.conf配置文件：
+### 增加recovery.conf配置文件：这个文件的primary_conninfo 是指datanode主的信息
 ```
 touch home/kunlun/TPC/postgres-xz/data/dn01/pg_hba.conf && cat >> home/kunlun/TPC/postgres-xz/data/dn1s1/recovery.conf << EOF
 standby_mode = on 
