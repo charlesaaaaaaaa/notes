@@ -12,5 +12,14 @@ line three for the file
 EOF
 ```
 
+# cat_file filename
+这个命令是用来cat一个文件的,很直观。  
+`cat_file data01`
 
+# change_user [username],[passwd],[dbname]
+这个命令就是用来更改当前的用户名，且将指定的数据库修改为当前的默认数据库。
+```
+change_user root
+--change_user kunlun,,test
+```
 
