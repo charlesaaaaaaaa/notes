@@ -23,3 +23,9 @@ change_user root
 --change_user kunlun,,test
 ```
 
+# character_set charset_name
+将默认字符集设置为charset_name.  
+```
+character_set utf8;
+--character_set sjis
+```
