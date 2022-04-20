@@ -52,6 +52,22 @@ discovery.seed_hosts:
 * 配置网页端的监听端口和ip
   * 将`http.host: [_local_, _site_]`和`#http.port: 9200`修改成对应的值
 
+* 将所有xpack的配置项都关闭：否则会连接不上网页端
+```
+xpack.security.enabled: false
+
+xpack.security.enrollment.enabled: false
+
+# Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+xpack.security.http.ssl:
+  enabled: false
+  keystore.path: certs/http.p12
+
+# Enable encryption and mutual authentication between cluster nodes
+xpack.security.transport.ssl:
+  enabled: false
+
+```
 ## 3.运行elasticsearch
 * `./bin/elasticsearch`
   * 没问题的话运行不会有报错
@@ -63,4 +79,28 @@ discovery.seed_hosts:
   * 在已经运行了es的服务器上，运行 `./bin/elasticsearch-create-enrollment-token -s node`
   * 复制下产生的口令
   * 在要新增的服务器上，运行 `./bin/elasticsearch --enrollment-token <enrollment-token>`
+
+### 运行完毕后连接网页端
+* window下打开浏览器，输入es所在的ip:port
+* linux下 `curl http://es-ip:es-port`
+  * 返回以下json串则为成功
+```
+{
+  "name" : "node1",
+  "cluster_name" : "first",
+  "cluster_uuid" : "_na_",
+  "version" : {
+    "number" : "8.1.2",
+    "build_flavor" : "default",
+    "build_type" : "tar",
+    "build_hash" : "31df9689e80bad366ac20176aa7f2371ea5eb4c1",
+    "build_date" : "2022-03-29T21:18:59.991429448Z",
+    "build_snapshot" : false,
+    "lucene_version" : "9.0.0",
+    "minimum_wire_compatibility_version" : "7.17.0",
+    "minimum_index_compatibility_version" : "7.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
 
