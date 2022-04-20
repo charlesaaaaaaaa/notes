@@ -25,6 +25,9 @@ elasticksearch 有三个配置文件：配置文件为YAML格式，遵循YAML规
   * 配置集群名，在配置文件里面找到以下内容，并且修改值与去掉#注释
     * 改前：`#cluster.name: my-application`
     * 改后：`cluster.name: first-application`
-  * 配置路径：elasticksearch官方强烈建议要把路径设置在es_home目录之处的目录里
+  * 配置节点名：
     * 改前：`#node.name: node-1`
     * 改后：`node.name: es-node1`
+  * 配置es路径：elasticksearch官方强烈建议要把路径设置在es_home目录之处的目录里
+    * 改前：
+    * 改后：
