@@ -57,4 +57,10 @@ discovery.seed_hosts:
   * 没问题的话运行不会有报错
 * 以守护进程的方式进行elasticsearch
   * `./bin/elasticsearch -d -p pid`
+  * -d 以守护进程的方式运行
+  * -p 指定pid文件路径
+* 当增加新节点的时候，要用到 **bin/elasticsearch-create-enrollment-token** 产生口令
+  * 在已经运行了es的服务器上，运行 `./bin/elasticsearch-create-enrollment-token -s node`
+  * 复制下产生的口令
+  * 在要新增的服务器上，运行 `./bin/elasticsearch --enrollment-token <enrollment-token>`
 
