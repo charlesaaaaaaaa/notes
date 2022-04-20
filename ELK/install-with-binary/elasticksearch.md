@@ -83,7 +83,7 @@ xpack.security.transport.ssl:
 ### 运行完毕后连接网页端
 * window下打开浏览器，输入es所在的ip:port
 * linux下 `curl http://es-ip:es-port`
-  * 返回以下json串则为成功
+  * 返回类似以下的json串则为成功
 ```
 {
   "name" : "node1",
