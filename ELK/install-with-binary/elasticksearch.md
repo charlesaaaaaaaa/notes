@@ -19,4 +19,9 @@ elasticksearch 有三个配置文件：
 * 2.jvm.options用于配置 Elasticsearch JVM 设置
 * 3.log4j2.properties用于配置 Elasticsearch 日志记录
 
-这些文件都是在与**bin目录同级的config目录**下
+这些文件都是在与 **bin目录同级的config目录** 下  
+
+* elasticsearch.yml:
+  * 配置应用名，在配置文件里面找到以下内容，并且修改值与去掉#注释
+    * 改前：`#cluster.name: my-application`
+    * 改后：`cluster.name: first-application`
