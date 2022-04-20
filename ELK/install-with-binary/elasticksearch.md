@@ -35,6 +35,8 @@ elasticksearch 有三个配置文件：配置文件为YAML格式，遵循YAML规
     * 改前：`#path.logs: /path/to/logs`
     * 改后：`path.logs: /home/es/logs`
   * data & log 目录还可以这样配置：
-    * `path:`
-    * `  data: /home/es/data`
-    * `  logs: /home/es/logs`
+```
+path:
+  data: /home/es/data
+  logs: /home/es/logs
+```
