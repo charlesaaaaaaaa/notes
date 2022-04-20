@@ -21,7 +21,7 @@ elasticksearch 有三个配置文件：配置文件为YAML格式，遵循YAML规
 
 这些文件都是在与 **bin目录同级的config目录** 下  
 
-* elasticsearch.yml:
+### elasticsearch.yml:
   * 配置集群名，在配置文件里面找到以下内容，并且修改值与去掉#注释
     * 改前：`#cluster.name: my-application`
     * 改后：`cluster.name: first-application`
