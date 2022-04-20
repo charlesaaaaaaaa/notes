@@ -28,6 +28,13 @@ elasticksearch 有三个配置文件：配置文件为YAML格式，遵循YAML规
   * 配置节点名：
     * 改前：`#node.name: node-1`
     * 改后：`node.name: es-node1`
-  * 配置es路径：elasticksearch官方强烈建议要把路径设置在es_home目录之处的目录里
-    * 改前：
-    * 改后：
+  * 配置data目录路径：elasticksearch官方强烈建议要把路径设置在es_home目录之处的目录里
+    * 改前：`#path.data: /path/to/data`
+    * 改后：`path.data: /home/es/data`
+  * 配置log目录路径：
+    * 改前：`#path.logs: /path/to/logs`
+    * 改后：`path.logs: /home/es/logs`
+  * data & log 目录还可以这样配置：
+    * path:
+    *   data: /home/es/data
+    *   logs: /home/es/logs
