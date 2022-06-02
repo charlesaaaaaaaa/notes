@@ -23,7 +23,7 @@ Offending ECDSA key in /home/charles/.ssh/known_hosts:1
 删除了之后再重新操作一次，会提示你是否添加host，yes就行了
 然后在.ssh/known_hosts就会出现新的github的host key
 
-### github 网页端无法显示图片
+## github 网页端无法显示图片
 这个其实和无法连接上github的解决方法是一样的。  
 * 如果是windows，直接在`C:\Windows\System32\drivers\etc\hosts`下新增以下ip和域名的映射：  
 ```
