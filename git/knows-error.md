@@ -12,7 +12,7 @@
 
 ### 因配置文件$HOME/.ssh/known_hosts错误无法连接上github
 如图  
-[err-pic](https://github.com/charlesaaaaaaaa/pic/blob/master/err/github-known_hosts.png)  
+![err-pic](https://github.com/charlesaaaaaaaa/pic/blob/master/err/github-known_hosts.png)  
 
 Add correct host key in /home/charles/.ssh/known_hosts to get rid of this message.  
 Offending ECDSA key in /home/charles/.ssh/known_hosts:1  
