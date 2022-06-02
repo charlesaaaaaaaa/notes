@@ -14,6 +14,50 @@
 如图  
 ![err-pic](https://github.com/charlesaaaaaaaa/pic/blob/master/err/github-known_hosts.png)  
 
+从图示上可以看到，有以下错误提示我们的.ssh/known_hosts文件里github的host key出问题了  
+{{{
 Add correct host key in /home/charles/.ssh/known_hosts to get rid of this message.  
 Offending ECDSA key in /home/charles/.ssh/known_hosts:1  
+}}}
+只要把文件里对应的行给删了就行。如图示我这是`.ssh/known_hosts:1`第一行有问题  
+删除了之后再重新操作一次，会提示你是否添加host，yes就行了
+然后在.ssh/known_hosts就会出现新的github的host key
+
+### github 网页端无法显示图片
+这个其实和无法连接上github的解决方法是一样的。  
+* 如果是windows，直接在`C:\Windows\System32\drivers\etc\hosts`下新增以下ip和域名的映射：  
+{{{
+140.82.112.3 github.com
+140.82.114.20     gist.github.com
+151.101.184.133    assets-cdn.github.com
+151.101.184.133    raw.githubusercontent.com
+151.101.184.133    gist.githubusercontent.com
+151.101.184.133    cloud.githubusercontent.com
+151.101.184.133    camo.githubusercontent.com
+151.101.184.133    avatars0.githubusercontent.com
+199.232.68.133     avatars0.githubusercontent.com
+199.232.28.133     avatars1.githubusercontent.com
+151.101.184.133    avatars1.githubusercontent.com
+151.101.184.133    avatars2.githubusercontent.com
+199.232.28.133     avatars2.githubusercontent.com
+151.101.184.133    avatars3.githubusercontent.com
+199.232.68.133     avatars3.githubusercontent.com
+151.101.184.133    avatars4.githubusercontent.com
+199.232.68.133     avatars4.githubusercontent.com
+151.101.184.133    avatars5.githubusercontent.com
+199.232.68.133     avatars5.githubusercontent.com
+151.101.184.133    avatars6.githubusercontent.com
+199.232.68.133     avatars6.githubusercontent.com
+151.101.184.133    avatars7.githubusercontent.com
+199.232.68.133     avatars7.githubusercontent.com
+151.101.184.133    avatars8.githubusercontent.com
+199.232.68.133     avatars8.githubusercontent.com
+185.199.111.133    raw.githubusercontent.com 
+185.199.110.133    raw.githubusercontent.com 
+185.199.108.133    raw.githubusercontent.com 
+185.199.109.133    raw.githubusercontent.com 
+}}}
+  * 这些都是github 曾经或者现在使用的ip，不知道那个有用那个没有，索性直接全部添加
+  * 这个时候再去网页端就可以显示图片了
+* 如果是在linux下，如ubuntu等有图形界面的linux发行版，在/etc/hosts下添加上述的github ip和域名的映射就行。
 
