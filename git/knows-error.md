@@ -61,3 +61,31 @@ Offending ECDSA key in /home/charles/.ssh/known_hosts:1
   * 这个时候再去网页端就可以显示图片了
 * 如果是在linux下，如ubuntu等有图形界面的linux发行版，在/etc/hosts下添加上述的github ip和域名的映射就行。
 
+## fatal: refusing to merge unrelated histories
+这个错误其实是因为在多个分支上有多次不同的提交历史导致的。如下：  
+```
+[charles@kunlun-test3 my-script]$ git pull
+warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+
+  git config pull.rebase false  # merge (the default strategy)
+  git config pull.rebase true   # rebase
+  git config pull.ff only       # fast-forward only
+
+You can replace "git config" with "git config --global" to set a default
+preference for all repositories. You can also pass --rebase, --no-rebase,
+or --ff-only on the command line to override the configured default per
+invocation.
+
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 4), reused 6 (delta 4), pack-reused 0
+Unpacking objects: 100% (6/6), 892 bytes | 892.00 KiB/s, done.
+From github.com:charlesaaaaaaaa/my-scripts
+   57e4f69..d0e5c52  main       -> origin/main
+fatal: refusing to merge unrelated histories
+```
+* 这个时候我们就要允许不同的历史提交，强制合并，在git pull的时候加上`--allow-unrelated-histories`参数
+  * 如 `git pull origin main --allow-unrelated-histories`
