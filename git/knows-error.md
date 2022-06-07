@@ -100,3 +100,16 @@ fatal: refusing to merge unrelated histories
   * 使用 `git push origin <分支名>:<分支名>`
   * 第一个是你当前的分支名，第二个是你要新建的远程分支名
 最后可以把误合并的分支用`git push origin --delete localbranch`删除
+
+## 删除默认分支失败：
+当出现以下错误提示的时候，  
+```
+[charles@kunlun-test3 master]$ git push origin --delete master
+To github.com:charlesaaaaaaaa/Tools.git
+ ! [remote rejected] master (refusing to delete the current branch: refs/heads/master)
+error: failed to push some refs to 'github.com:charlesaaaaaaaa/Tools.git'
+```
+如果是因为删除的是该仓库的默认分支，则要把默认分支修改成其它的分支才可以删除
+* 1. 去网页端，打开对应的仓库，点击settings -- Branches
+* 2. 在笔（修改）图标的右边有个相反的两个箭头的图标，点击，然后就可以修改默认分支了。
+* 3. 这个时候再删除分支就不会再报这个错误了
