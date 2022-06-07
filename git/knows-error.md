@@ -89,3 +89,14 @@ fatal: refusing to merge unrelated histories
 ```
 * 这个时候我们就要允许不同的历史提交，强制合并，在git pull的时候加上`--allow-unrelated-histories`参数
   * 如 `git pull origin main --allow-unrelated-histories`
+
+## 不小心合并分支想回退
+先说下步骤：  
+* 1.在当前分支下使用`git reset --hrad <git提交的历史号>`。
+  * git的历史号可以在网页端上查看，点击history找到自己想要的历史号
+* 2.使用`git checkout -b <分支名>` 来新建一个本地分支
+  * 因为是新建的本地分支，所以里面的东西是不会变的。
+* 3.把新建一个远程分支并且推到github上
+  * 使用 `git push origin <分支名>:<分支名>`
+  * 第一个是你当前的分支名，第二个是你要新建的远程分支名
+最后可以把误合并的分支用`git push origin --delete localbranch`删除
