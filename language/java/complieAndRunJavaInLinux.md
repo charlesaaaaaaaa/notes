@@ -8,7 +8,7 @@
 * 如果有一个要导入的包，javac -cp 包的绝对路径 name.java
 * 如果有多个要导入的包，每个包之间用:分隔开，如 javac -cp 包1的绝对路径:包2的绝对路径 name.java
   * 网上很多人都说导入多个包直接把jar包放在一个目录下，然后`javac -cp jarDirPath/* name.java` 就行，但是我自己那么用的时候就会报说某个jar包找不到，所以这个我就没有在用了
-* 如果要导入的包是自建的，则要进入到对应的java文件下，先用javac编译好，生成class文件。然后回去看导入的自建包的路径是什么。如java文件里面`import patha.pathb.pakname`,则在pakname.class的上两级目录，确认路径是patha/pathb/pakname.class。然后在patha目录下用jar命令打包。`jar cvf pakname.jar patha`。
+* 如果要导入的包是自建的，则要进入到对应的要导入的java文件下，先用javac编译好，生成class文件。然后回去看要编译的java文件，要导入的自建包路径是什么。如java文件里面`import patha.pathb.pakname`,则在pakname.class的上两级目录，确认路径是patha/pathb/pakname.class。然后在patha目录下用jar命令打包。`jar cvf pakname.jar patha`。
   * 打好包后再用javac -cp 自建包绝对路径:其它包绝对路径 name.java
 ## 运行
 * 这个和编译的命令很像
