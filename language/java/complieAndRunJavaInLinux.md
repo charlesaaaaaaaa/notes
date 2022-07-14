@@ -1,3 +1,5 @@
+## 在windows上写好的java程序怎么在linux上运行
+
 * 先在windows上用idea或者其它的工具写好程序。
 * 把文件夹上传到linux里面
 * 再把对应的jar包给上传到linux里，之所以不在linux下载是因为这些找起来太麻烦了。用工具下载好的jar包最方便了
