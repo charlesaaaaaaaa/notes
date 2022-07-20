@@ -2,7 +2,7 @@
 * 如果只是用于测试的话，是不推荐用main函数，因为会和程序代码混在一起。
 * 这个时候就到junit的出场了。
 * 我现在用的是junit4，因为5不知道怎么在linux上面运行
-* junit4下载方法：(官网下载地址)[https://www.jetbrains.com/idea/download/#section=linux]
+* junit4下载方法：[官网下载地址](https://www.jetbrains.com/idea/download/#section=linux)
   * 先下载一个idea linux版本到服务器上面。
   * 解压后进入到lib目录里，在该目录下可以找到junit4.jar。
   * 把jar包复制到其它地方后就可以直接删了idea的包了
