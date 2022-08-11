@@ -34,3 +34,24 @@ wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-node-
 wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-server-$Version.tgz
 wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-storage-$Version.tgz
 ```
+
+# #建立文件目录
+* mkdir -p /home/kunlun/base/* cd /home/kunlun/base
+```
+wget http://zettatech.tpddns.cn:14000/thirdparty/hadoop-3.3.1.tar.gz
+wget http://zettatech.tpddns.cn:14000/thirdparty/jdk-8u131-linux-x64.tar.gz
+wget http://zettatech.tpddns.cn:14000/thirdparty/mysql-connector-python-2.1.3.tar.gz
+wget http://zettatech.tpddns.cn:14000/thirdparty/prometheus.tgz
+wget http://zettatech.tpddns.cn:14000/thirdparty/haproxy-2.5.0-bin.tar.gz
+
+Version=1.0.1
+wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-cluster-manager-$Version.tgz
+wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-node-manager-$Version.tgz
+wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-server-$Version.tgz
+wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-storage-$Version.tgz
+```
+
+# #建立文件目录
+```
+mkdir -p /home/kunlun/base/program_binaries/util /home/kunlun/base/instance_binaries /home/kunlun/base/server_datadir /home/kunlun/base/storage_datadir /home/kunlun/base/storage_logdir /home/kunlun/base/storage_waldir /home/kunlun/base/instance_binaries/storage/6001
+```
