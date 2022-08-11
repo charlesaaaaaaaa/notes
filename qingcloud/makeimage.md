@@ -1,5 +1,5 @@
-# 环境
-## 使用的是centos8
+# #环境
+## #使用的是centos8
 ```
 yum install -y git cmake libarchive flex bison make gcc gcc-c++ ncurses-devel ncurses-libs libtirpc libtirpc-devel zlib-devel openssl openssl-devel libaio libaio-devel icu libicu libicu-devel readline readline-devel wget sudo vim python2 python3
 wget https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
@@ -9,14 +9,15 @@ cd rpcsvc-proto-1.4
 make
 sudo make install
 ```
-* 添加用户
+* #添加用户
   * useradd kunlun
   * echo -e 'Kunlun1#\nKunlun1#' | passwd kunlun
-* 增加用户sudo权限
+    * #这个是模拟输入两次密码
+* #增加用户sudo权限
   * sed -i '100akunlun  ALL=(ALL)       NOPASSWD:ALL' /etc/sudoers
 
 
-## 下载二进制包
+## #下载二进制包
 * sudo su kunlun
 * mkdir -p /home/kunlun/base
 * cd /home/kunlun/base
