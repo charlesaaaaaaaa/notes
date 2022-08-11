@@ -58,25 +58,48 @@ wget http://kunlunbase.com:14000/releases/$Version/release-binaries/kunlun-stora
 mkdir -p /home/kunlun/base/program_binaries/util /home/kunlun/base/instance_binaries \
 /home/kunlun/base/server_datadir /home/kunlun/base/storage_datadir /home/kunlun/base/storage_logdir \
 /home/kunlun/base/storage_waldir /home/kunlun/base/instance_binaries/storage/6001 \
-/home/kunlun/base/storage_datadir/6001 /home/kunlun/base/storage_logdir/6001 /home/kunlun/base/storage_waldi/6001
+/home/kunlun/base/storage_datadir/6001 /home/kunlun/base/storage_logdir/6001 /home/kunlun/base/storage_waldi/6001 \
+/home/kunlun/base/instance_binaries/computer
 ```
-* mv *gz /home/kunlun/base/instance_binaries
+* mv *gz /home/kunlun/base/program_binaries
+* cd /home/kunlun/base/program_binaries
 ```
 tar -zxf hadoop-3.3.1.tar.gz
 tar -zxf haproxy-2.5.0-bin.tar.gz
 tar -zxf jdk-8u131-linux-x64.tar.gz
-tar -zxf kunlun-cluster-manager-1.0.1.tgz
-tar -zxf kunlun-node-manager-1.0.1.tgz
-tar -zxf kunlun-server-1.0.1.tgz
-tar -zxf kunlun-storage-1.0.1.tgz
+tar -zxf kunlun-cluster-manager-$Version.tgz
+tar -zxf kunlun-node-manager-$Version.tgz
+tar -zxf kunlun-server-$Version.tgz
+tar -zxf kunlun-storage-$Version.tgz
 tar -zxf mysql-connector-python-2.1.3.tar.gz
-tar -zxf prometheus.tgz
+tar -zxf prometheus.tgz 
 
 rm -rf hadoop-3.3.1.tar.gz haproxy-2.5.0-bin.tar.gz jdk-8u131-linux-x64.tar.gz  \
-kunlun-cluster-manager-1.0.1.tgz kunlun-node-manager-1.0.1.tgz kunlun-server-1.0.1.tgz \
-kunlun-storage-1.0.1.tgz mysql-connector-python-2.1.3.tar.gz prometheus.tgz
+kunlun-cluster-manager-$Version.tgz kunlun-node-manager-$Version.tgz kunlun-server-1.0.1.tgz \
+kunlun-storage-$Version.tgz mysql-connector-python-2.1.3.tar.gz prometheus.tgz
 
+mv kunlun-cluster-manager-$Version ..
+mv kunlun-node-manager-$Version ..
+cp kunlun-storage-$Version /home/kunlun/base/instance_binaries/storage/6001
 ```
 
 # #环境
-
+```
+JAVA_HOME=home/kunlun/base/program_binaries/jdk1.8.0_131
+HADOOP_HOME=/home/kunlun/base/program_binaries/hadoop-3.3.1
+SERVER_HOME=/home/kunlun/base/program_binaries/kunlun-server-$Version
+STORAGE_HOME=/home/kunlun/base/program_binaries/kunlun-storage-$Version
+CLUSTER_HOME=/home/kunlun/base/kunlun-cluster-manager-$Version
+NODE_HOME=/home/kunlun/base/kunlun-node-manager-$Version
+cat << EOF >> ~/.bashrc
+JAVA_HOME=home/kunlun/base/program_binaries/jdk1.8.0_131
+HADOOP_HOME=/home/kunlun/base/program_binaries/hadoop-3.3.1
+SERVER_HOME=/home/kunlun/base/program_binaries/kunlun-server-$Version
+STORAGE_HOME=/home/kunlun/base/program_binaries/kunlun-storage-$Version
+CLUSTER_HOME=/home/kunlun/base/kunlun-cluster-manager-$Version
+NODE_HOME=/home/kunlun/base/kunlun-node-manager-$Version
+export PATH=$SERVER_HOME/bin:$STORAGE_HOME/bin:$CLUSTER_HOME/bin:$NODE_HOME/bin:$JAVA_HOME/bin:$HADOOP_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$SERVER_HOME/lib:$STORAGE_HOME/lib:$CLUSTER_HOME/lib:$NODE_HOME/lib:$LD_LIBRARY_PATH
+EOF
+source ~/.bashrc
+```
