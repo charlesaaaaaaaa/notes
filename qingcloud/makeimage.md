@@ -76,7 +76,7 @@ cp kunlun-storage-$Version /home/kunlun/base/instance_binaries/storage/6001
 
 # #环境
 ```
-JAVA_HOME=home/kunlun/base/program_binaries/jdk1.8.0_131
+JAVA_HOME=/home/kunlun/base/program_binaries/jdk1.8.0_131
 HADOOP_HOME=/home/kunlun/base/program_binaries/hadoop-3.3.1
 SERVER_HOME=/home/kunlun/base/program_binaries/kunlun-server-$Version
 STORAGE_HOME=/home/kunlun/base/program_binaries/kunlun-storage-$Version
