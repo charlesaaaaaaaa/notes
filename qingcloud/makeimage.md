@@ -1,4 +1,4 @@
-# #环境
+# #依赖
 ## #使用的是centos8
 ```
 yum install -y git cmake libarchive flex bison make gcc gcc-c++ ncurses-devel ncurses-libs libtirpc libtirpc-devel zlib-devel openssl openssl-devel libaio libaio-devel icu libicu libicu-devel readline readline-devel wget sudo vim python2 python3
@@ -61,3 +61,22 @@ mkdir -p /home/kunlun/base/program_binaries/util /home/kunlun/base/instance_bina
 /home/kunlun/base/storage_datadir/6001 /home/kunlun/base/storage_logdir/6001 /home/kunlun/base/storage_waldi/6001
 ```
 * mv *gz /home/kunlun/base/instance_binaries
+```
+tar -zxf hadoop-3.3.1.tar.gz
+tar -zxf haproxy-2.5.0-bin.tar.gz
+tar -zxf jdk-8u131-linux-x64.tar.gz
+tar -zxf kunlun-cluster-manager-1.0.1.tgz
+tar -zxf kunlun-node-manager-1.0.1.tgz
+tar -zxf kunlun-server-1.0.1.tgz
+tar -zxf kunlun-storage-1.0.1.tgz
+tar -zxf mysql-connector-python-2.1.3.tar.gz
+tar -zxf prometheus.tgz
+
+rm -rf hadoop-3.3.1.tar.gz haproxy-2.5.0-bin.tar.gz jdk-8u131-linux-x64.tar.gz  \
+kunlun-cluster-manager-1.0.1.tgz kunlun-node-manager-1.0.1.tgz kunlun-server-1.0.1.tgz \
+kunlun-storage-1.0.1.tgz mysql-connector-python-2.1.3.tar.gz prometheus.tgz
+
+```
+
+# #环境
+
