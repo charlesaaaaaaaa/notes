@@ -11,8 +11,10 @@ sudo make install
 ```
 * 添加用户
   * useradd kunlun
-  * passwd -stdin kunlun
   * echo -e 'Kunlun1#\nKunlun1#' | passwd kunlun
+* 增加用户sudo权限
+  * sed -i '100akunlun  ALL=(ALL)       NOPASSWD:ALL' /etc/sudoers
+
 
 ## 下载二进制包
 * sudo su kunlun
