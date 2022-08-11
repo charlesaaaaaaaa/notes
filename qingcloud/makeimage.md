@@ -16,7 +16,8 @@ sudo make install
 
 ## 下载二进制包
 * sudo su kunlun
-* cd /home/kunlun
+* mkdir -p /home/kunlun/base
+* cd /home/kunlun/base
 ```
 wget http://zettatech.tpddns.cn:14000/thirdparty/hadoop-3.3.1.tar.gz
 wget http://zettatech.tpddns.cn:14000/thirdparty/jdk-8u131-linux-x64.tar.gz
