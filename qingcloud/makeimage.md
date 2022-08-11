@@ -1,5 +1,5 @@
 # #依赖
-## #使用的是centos8
+## #使用的是centos7
 ```
 yum install -y git cmake libarchive flex bison make gcc gcc-c++ ncurses-devel ncurses-libs libtirpc libtirpc-devel zlib-devel openssl openssl-devel libaio libaio-devel icu libicu libicu-devel readline readline-devel wget sudo vim python2 python3
 wget https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
@@ -9,6 +9,14 @@ cd rpcsvc-proto-1.4
 make
 sudo make install
 ```
+
+## #安装app-agent
+### #这个是使用青云的meta服务必需要安装的软件
+* wget https://docsv3.qingcloud.com/appcenter/dev-platform/cluster-developer-guide/scripts/app-agent.tar.gz
+* cd app-agent-linux-amd64
+* bash ./install.sh
+
+
 * #添加用户
   * useradd kunlun
   * echo -e 'Kunlun1#\nKunlun1#' | passwd kunlun
