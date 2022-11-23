@@ -1,7 +1,7 @@
 [[PageOutline]]
 * 本次使用mysql 8.0.30版本做示范
 ## 下载mysql-8.0
-* [https://downloads.mysql.com/archives/community/](mysql社区版下载)
+* [mysql社区版下载](https://downloads.mysql.com/archives/community/)
 * `Product Version`版本任意选择，这里选择最新的8.0.30
 * `Operating System`操作系统选择`Linux - Generic`,这个是已经编译好的版本
 * `OS Version` 根据自身服务器的glibc版本选择对应的版本
