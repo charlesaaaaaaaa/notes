@@ -93,7 +93,7 @@ connection {
 
 ## 准备数据
 * 该步骤要确保数据库配置和基准测试集配置要正确，不然会直接报错
-* `buildschema`
+  * `buildschema`
 
 * 删除数据
   * `deleteschema`
