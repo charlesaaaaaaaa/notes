@@ -4,7 +4,7 @@
 ## 下载安装
 * 可以直接去hammerdb官网下载
   * 选择`for Linux 64-bit compressed tar file`
-  * ![hammerdb官网下载页面](https://www.hammerdb.com/download.html)
+  * [hammerdb官网下载页面](https://www.hammerdb.com/download.html)
 
 * 下载完成后，直接解压
   * cd到hammerdb目录下
