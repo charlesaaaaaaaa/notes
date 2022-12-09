@@ -106,6 +106,9 @@ connection {
 ## 使用脚本运行hammerdb测试
 * 因为使用hammerdb命令行对自动化测试会比较麻烦
   * 所以我们可以写一个tcl格式的脚本去让hammerdb自动运行对应的命令
+* `./hammerdbcli auto filename.tcl`
+  * 比如文件名是`test1.tcl`
+  * `./hammerdbcli auto test1.tcl`
 ```
 puts "setting Configureation ..."
 dbset db pg
