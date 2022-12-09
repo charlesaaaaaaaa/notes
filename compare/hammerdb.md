@@ -97,3 +97,40 @@ connection {
 
 * 删除数据
   * `deleteschema`
+
+## 运行测试
+* `vurun`
+
+-----
+
+## 使用脚本运行hammerdb测试
+* 因为使用hammerdb命令行对自动化测试会比较麻烦
+  * 所以我们可以写一个tcl格式的脚本去让hammerdb自动运行对应的命令
+```
+puts "setting Configureation ..."
+dbset db pg
+diset connection pg_host 192.168.0.132
+diset connection pg_port 35005
+diset connection pg_sslmode disable
+diset tpcc pg_count_ware 100
+diset tpcc pg_num_vu 100
+diset tpcc pg_superuser abc
+diset tpcc pg_superuserpass abc
+diset tpcc pg_defaultdbase hmb
+diset tpcc pg_user abc
+diset tpcc pg_pass abc
+diset tpcc pg_dbase hmb
+diset tpcc pg_total_iterations 100000000
+diset tpcc pg_rampup 1
+diset tpcc pg_duration 5
+foreach Z { 1 2 3 } {
+puts "$Z vu test ..."
+vuset vu $Z
+vucreate
+vurun
+runtimer 200
+vudestroy
+}
+puts "Test Complete!"
+quit
+```
