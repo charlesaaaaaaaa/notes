@@ -1,4 +1,4 @@
-## hammerdb
+# hammerdb
 * hammerdb是一款测试数据库性能的工具，不是数据库
 
 ## 下载安装
