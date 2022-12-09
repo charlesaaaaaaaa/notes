@@ -138,7 +138,7 @@ puts "Test Complete!"
 quit
 ```
 
-* 除了hammerdb的命令之外，还有几个函数
+* 示例的脚本可以看到除了hammerdb的命令之外，还有几个函数
   * 这几个函数如果用过C语言，应该会很好解理
   * `puts`就是输出，`foreach`就是循环
   * `$Z`表示引用变量Z，这个和php/shell的语法有点像
