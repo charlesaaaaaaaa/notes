@@ -48,7 +48,7 @@ Success. You can now start the database server using:
     pg_ctl -D /nvme2/compare/postgres/data -l logfile start
 ```
 * 注意最后的这个启动命令，这个最后启动pg用得上
-* 还有就是要设置pg的环境变量
+* 还有就是要设置pg的环境变量,有条件的话最好就写在`~/.bashrc`文件里
   * `PATH`设置成Base目录下的bin目录
     * `export PATH=/nvme2/compare/postgres/base/bin:$PATH`
   * `LD_LIBRARY_PATH`设置成Base目录下的lib目录
