@@ -1,6 +1,6 @@
 ## 编译
 * 先下载一个postgresql的源码包
-  * [https://www.postgresql.org/ftp/source/ 官网下载]
+  * [官网下载](https://www.postgresql.org/ftp/source/)
 * 下载好后解压
 * 进入到源码包里
   * `./configure --prefix=/nvme2/compare/postgresql-15.1/base`
