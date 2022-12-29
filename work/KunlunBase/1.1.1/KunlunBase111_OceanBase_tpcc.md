@@ -86,5 +86,5 @@
 | 200 | 19124.72 | 36993.18 |
 | 225 | 19829.38 | 35779.81 |
 | 250 | 17830.15 | 29728.55 |
-* 对比图  
+### 对比图  
 ![compare](https://github.com/charlesaaaaaaaa/notes/blob/main/work/KunlunBase/1.1.1/ap.png)
