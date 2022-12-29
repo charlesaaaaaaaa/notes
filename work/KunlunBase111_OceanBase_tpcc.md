@@ -19,9 +19,7 @@
 
 ### 测试说明：
 * 本次使用的是Banchmarksql5.0
-* OceanBase根据下面这篇文章修改Benchmarksql ,且使用OceanBase官方jdbc驱动
-  * https://www.oceanbase.com/docs/community-observer-cn-10000000000901541
-  * oceanbase-client-2.4.0.jar
+* OceanBase根据下面这篇[文章](https://www.oceanbase.com/docs/community-observer-cn-10000000000901541)修改Benchmarksql ,且使用OceanBase[官方jdbc驱动](https://mvnrepository.com/artifact/com.oceanbase/oceanbase-client)
 * 本次两个数据库集群都是灌50个warehouse
 * 本次测试时间都是5分钟
 * 本次测试在每个测试后都会停止5分钟后再继续下一个测试
