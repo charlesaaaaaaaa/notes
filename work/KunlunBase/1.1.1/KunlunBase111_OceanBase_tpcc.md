@@ -87,4 +87,4 @@
 | 225 | 19829.38 | 35779.81 |
 | 250 | 17830.15 | 29728.55 |
 * 对比图  
-![compare](https://gitee.com/liu-liangcheng/notes/blob/main/work/KunlunBase/1.1.1/ap.png)
+![compare](https://github.com/charlesaaaaaaaa/notes/blob/main/work/KunlunBase/1.1.1/ap.png)
