@@ -25,7 +25,7 @@
 * 本次测试在每个测试后都会停止5分钟后再继续下一个测试
 
 ### 集群配置说明：
-##### KunlunBase：
+##### KunlunBase-性能模式：
 ```
 {
         "comp":[{
@@ -49,7 +49,38 @@
                 "enable_fullsync": "OFF",
                 "innodb_flush_log_at_trx_commit": 0,
                 "sync_binlog": 0,
-                "innodb_buffer_pool_size": "32*1024*1024*1024",
+                "innodb_buffer_pool_size": "10*1024*1024*1024",
+                "max_binlog_size": "1*1024*1024*1024"
+                }
+        ]
+}
+
+```
+##### KunlunBase-生产模式:
+```
+{
+        "comp":[{
+                        "statement_timeout":1200000,
+                        "mysql_read_timeout":1200,
+                        "mysql_write_timeout":1200,
+                        "lock_timeout":1200000,
+                        "autovacuum": "off",
+                        "log_min_duration_statement":1200000
+                }
+        ],
+        "metadata":[{
+                        "lock_wait_timeout":1200,
+                        "innodb_lock_wait_timeout":1200
+                }
+        ],
+        "storage":[{
+                "lock_wait_timeout":1200,
+                "innodb_lock_wait_timeout":1200,
+                "fullsync_timeout":1200,
+                "enable_fullsync": "ON",
+                "innodb_flush_log_at_trx_commit": 1,
+                "sync_binlog": 1,
+                "innodb_buffer_pool_size": "10*1024*1024*1024",
                 "max_binlog_size": "1*1024*1024*1024"
                 }
         ]
@@ -74,17 +105,19 @@
     max_syslog_file_count: 4
 ```
 ### 对比结果：
-| threads | OceanBase-tpmC | KunlunBase-tpmC |
 | ---- | ---- | ---- |
-| 25 | 26727.9 | 22538.99 |
-| 50 | 26449.72 | 33431.78 |
-| 75 | 25716.25 | 36090.11 |
-| 100 | 24998.16 | 36072.49 |
-| 125 | 21698.29 | 35211.52 |
-| 150 | 21011.14 | 40422.41 |
-| 175 | 20230.11 | 38191.84 |
-| 200 | 19124.72 | 36993.18 |
-| 225 | 19829.38 | 35779.81 |
-| 250 | 17830.15 | 29728.55 |
+| threads | OceanBase | KunlunBase-性能模式 | KunlunBase-生产模式 |
+| ---- | ---- | ---- | ---- |
+| 25 | 26727.9 | 22538.99 | 8287.79 |
+| 50 | 26449.72 | 33431.78 | 9617.06 |
+| 75 | 25716.25 | 36090.11 | 12671.91 |
+| 100 | 24998.16 | 36072.49 | 13287.26 |
+| 125 | 21698.29 | 35211.52 | 15660.77 |
+| 150 | 21011.14 | 40422.41 | 15519.44 |
+| 175 | 20230.11 | 38191.84 | 17044.21 |
+| 200 | 19124.72 | 36993.18 | 18800.43 |
+| 225 | 19829.38 | 35779.81 | 16175.82 |
+| 250 | 17830.15 | 29728.55 | 18107.56 |
+
 ### 对比图  
 ![compare](https://github.com/charlesaaaaaaaa/notes/blob/main/work/KunlunBase/1.1.1/ap.png)
