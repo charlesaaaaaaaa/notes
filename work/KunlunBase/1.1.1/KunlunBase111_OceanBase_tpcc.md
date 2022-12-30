@@ -89,6 +89,7 @@
 ```
 
 ##### OceanBase：
+* OceanBase用的是官方建议的性能环境下参数，详细可以看[这里](https://www.oceanbase.com/docs/enterprise-oceanbase-database-cn-10000000000886161)
 ```
     writing_throttling_trigger_percentage: 100
     memory_limit_percentage: 80
