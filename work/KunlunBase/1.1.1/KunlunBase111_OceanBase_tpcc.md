@@ -120,4 +120,4 @@
 | 250 | 17830.15 | 29728.55 | 18107.56 |
 
 ### 对比图  
-![compare](https://github.com/charlesaaaaaaaa/notes/blob/main/work/KunlunBase/1.1.1/ap.png)
+![compare](https://github.com/charlesaaaaaaaa/notes/blob/main/work/KunlunBase/1.1.1/p2.png)
