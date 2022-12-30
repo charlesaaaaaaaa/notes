@@ -106,7 +106,6 @@
     max_syslog_file_count: 4
 ```
 ### 对比结果：
-| ---- | ---- | ---- |
 | threads | OceanBase | KunlunBase-性能模式 | KunlunBase-生产模式 |
 | ---- | ---- | ---- | ---- |
 | 25 | 26727.9 | 22538.99 | 8287.79 |
