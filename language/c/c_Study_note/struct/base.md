@@ -75,7 +75,7 @@ student1 = {"张三", "18", "3", "m"};
 ```
 
 ### 引用结构体类型变量
-* 输出
+#### 输出
 ```
 printf("%c", &student1); //输出结构体类型变量的首地址
 printf("%c", student1.cName); //输出结果体类型变量的cName值
@@ -85,7 +85,7 @@ printf("%c", student1.cName); //输出结果体类型变量的cName值
   printf("%s, %d, %d, %c", student1);//这样是错误的
   ```
 
-* 输入
+#### 输入
 ```
 scanf("%s", &student1.cName); //输入成员的值,要单独赋值
 ```
