@@ -89,7 +89,7 @@ void Print(struct Student *pHead)
 	struct Student *pTemp;// 定义一个临时的变量来存放结点
 	pTemp = pHead;
 
-	while(pTemp = NULL)
+	while(pTemp != NULL)
 	{
 		printf("NO.%d Student:", iIndex);
 		printf("name: %s, ", pTemp -> cName);
