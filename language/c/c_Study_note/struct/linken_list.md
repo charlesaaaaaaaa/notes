@@ -126,3 +126,40 @@ int main()
 ## 插入结点
 
 ## 删除结点
+* 结点的删除，就是把**对应位置结点的前一个结点**的指针指向**对应位置结点的后一个结点**，随后用free函数释放掉对应的结点
+  * 所以要定义一个**临时结点**和**前结点**
+* 删除一个节点，首先我们要知道要删除的结点在第几个
+* 当知道了结点的编号后，循环该编号的次数
+  * 每次循环，把临时变量给到前结点
+  * 再把临时变量的指针指向的地址给到临时变量
+  * 循环到第编号次，就找到了要用的
+* 循环完毕，把前结点和后结点连接
+* 释放当前的临时结点
+```
+void Delete(struct Student *pHead, int iIndex)
+{
+	struct Student *pPre; //定义一个前结点
+	struct Student *pTemp; //定义一个临时结点
+	pTemp = pHead; // 把头结点给到临时结点
+	pPre = pTemp; //把临时节点给到前结点
+
+	for(int i = 1; i < iIndex; i++) //注意i初始值应该为1
+	{
+		pPre = pTemp; //把临时结点给到头结点
+		pTemp = pTemp -> pNext; //临时结点指向下一个结点的指针
+	}
+	pPre -> pNext = pTemp -> pNext; //把临时结点的指向的下一个地址给到前结点指向的地址，也就是完成了头结点和后结点的连接
+	free(pTemp); //使用free函数释放掉临时结点
+	iCount--; //iCount是之前的链表里的iCount变量，就是结点的结点数。因为删除了一个结点，所以这里结点数也要减少1
+}
+
+//加入删除操作
+int main()
+{
+	struct Student *pHead(); //定义头结点
+	pHead = Create(); //把头结点给到Create函数创建链表
+	Delete(pHead); //执行删除操作
+	Print(pHead); //打印链表
+	return 0;
+}
+```
